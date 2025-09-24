@@ -1,24 +1,49 @@
-
-
 #include <stdio.h> 
 int main () { 
-    char character ; 
+      float actual_amount ;
+      float saved_amount ; 
+      float final_amount ;
+       
+       printf (" Hey there!\n On the ocassion of EID. \n Our store is offering a great discount.\n If you have purchased anything ,  enter the amount below. \n So , I may tell you how much you have saved! \n ThankYou!\n\n") ; 
+       
+       printf ("Enter the amount=") ; 
+       scanf ("%f" , &actual_amount) ;
     
-    printf ("Enter any character=") ; 
-    scanf ("%c", &character) ; 
-    
-    if (character >= 'a' && character <= 'z') {
-        printf ("Character entered is a small alphabet.") ; 
-    }
-    else if (character >= 'A' && character <= 'Z'){
-        printf ("Character entered is a Capital alphabet.") ;
-    }
-    else if (character >= '0' && character <= '9') {
-        printf ("Character entered is a digit.") ; 
-    }
-    else 
-    printf ("Character entered is a Special character.") ; 
-    
-    return 0 ;
+       if (actual_amount <=1999) {
+             saved_amount = 0 ; 
+             final_amount = actual_amount ; 
+             
+             printf ("\n\nThe actual amount of your purchase is = %.3f \n" , actual_amount)  ; 
+             printf ("The amount you have saved is = %.3f\n" , saved_amount) ; 
+             printf ("The amount after discount is = %.3f\n" , final_amount) ;  
+             printf ("Sadly , No discount available.\n") ;
+       }
+       
+       else if ( actual_amount <= 4000) {
+           saved_amount = actual_amount* (20.0/100) ; 
+           final_amount = actual_amount - saved_amount ; 
+             
+             printf ("\n\nThe actual amount of your purchase is = %.3f\n ", actual_amount) ; 
+             printf("The amount you have saved is =%.3f\n" , saved_amount) ; 
+             printf ("The amount after discount is= %.3f\n" , final_amount) ;
+       }
+       
+       else if ( actual_amount <= 6000) {
+           saved_amount = actual_amount* (30.0/100) ; 
+           final_amount = actual_amount - saved_amount ; 
+             
+             printf ("\n\nThe actual amount of your purchase is = %.3f\n ", actual_amount) ; 
+             printf ("The amount you have saved is =%.3f\n" , saved_amount) ; 
+             printf ("The amount after discount is= %.3f\n" , final_amount) ;
+       } 
+       else  {
+       saved_amount = actual_amount* (50.0/100) ; 
+           final_amount = actual_amount - saved_amount ; 
+             
+             printf ("\n\nThe actual amount of your purchase is = %.3f\n ", actual_amount) ; 
+             printf ("The amount you have saved is =%.3f\n" , saved_amount) ; 
+             printf ("The amount after discount is= %.3f\n" , final_amount) ;
+       } 
+       
+       return 0 ; 
 }
-
