@@ -1,0 +1,26 @@
+// Arbish Randhawah. 
+// Roll Number = CT-25053. 
+// Section B.
+
+
+#include <stdio.h> 
+int main () { 
+    char character ; 
+    
+    printf ("Enter any character=") ; 
+    scanf ("%c", &character) ; 
+    
+    if (character >= 'a' && character <= 'z') {
+        printf ("Character entered is a small alphabet.") ; 
+    }
+    else if (character >= 'A' && character <= 'Z'){
+        printf ("Character entered is a Capital alphabet.") ;
+    }
+    else if (character >= '0' && character <= '9') {
+        printf ("Character entered is a digit.") ; 
+    }
+    else 
+    printf ("Character entered is a Special character.") ; 
+    
+    return 0 ;
+}
