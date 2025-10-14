@@ -1,0 +1,21 @@
+// Program that computes the average marks of student
+#include <stdio.h>
+int main (void) {
+    int marks[5] ; 
+    int sum=0;
+    float avgmarks ;
+    
+    printf("Enter the marks of 5 subjects sequentially = ") ; 
+    
+    for (int i=0 ; i<5 ; i++) {
+        scanf("%d" , &marks[i]) ;
+        
+        sum+= marks[i] ; 
+    }
+    avgmarks=sum/5;
+    
+    printf("Average Marks are = %f" , avgmarks) ;
+    
+    
+    return 0 ;
+}
