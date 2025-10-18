@@ -1,0 +1,123 @@
+#include <stdio.h> 
+#include <unistd.h> 
+int main () { 
+    char coffeetype ;
+    char cupsize ; 
+    char coffeemade ;
+    int totaltime ;
+    
+    printf ("Hey! Dear Customer.\n") ;
+    printf ("What type of coffee would you like to have?\n") ;
+    printf ("B/b = Black?\nW/w = White?\n") ; 
+    printf ("Enter your choice of coffee = ") ;
+    scanf (" %c" , &coffeetype) ; 
+    
+    switch (coffeetype) {
+        
+        case 'B' :
+        case 'b' :
+        totaltime = 25 ; // mins 
+        printf ("You chose Black Coffee.\n") ;
+        printf ("It'll take %d minutes to get it ready.\n" , totaltime) ;
+        sleep (2) ;
+        break ;
+        
+        case 'W' :
+        case 'w' :
+        totaltime = 20 ;// mins
+        printf ("You chose White Coffee.\n") ; 
+        printf ("It'll take %d minutes to get it ready.\n" , totaltime) ; 
+        sleep (2) ;
+        break ; 
+        
+        default :
+        printf ("Not Available.\n") ;
+        sleep (2) ;
+        
+        return 0;
+        }
+        
+        printf ("How would you like your Cup Size?\n") ; 
+        printf ("D/d = Double?\nR/r = Regular?\n") ;
+        printf ("Enter your choice for Cup Size = ") ;
+        scanf (" %c" , &cupsize) ;
+        
+        switch (cupsize) { 
+            
+            case 'D' : 
+            case 'd' :
+            totaltime = totaltime+(totaltime/2) ;
+            printf ("You chose Double Cup Size.\n") ;
+            printf ("Now it'll take %d minutes to get it ready.\n" , totaltime ) ;
+            sleep (2) ;
+            break ; 
+            
+            case 'R' :
+            case 'r':
+            printf ("You chose Regular Cup Size.\n") ;
+            printf ("It'll take %d minutes to get it ready.\n" , totaltime) ;
+            sleep (2) ; 
+            break ; 
+            
+            default :
+            printf ("Not Available.\n") ;
+            sleep (2) ;
+            return 0 ;
+            
+            }
+            
+            printf ("Do you want it manual or automatic?\n") ;
+            printf ("M/m = Manual?\nA/a = Automatic?\n") ;
+            printf ("Enter your choice = ") ;
+            scanf (" %c" , &coffeemade ) ;
+            
+            switch (coffeemade) {
+                
+                case 'M' :
+                case 'm' :
+                printf ("You chose manual coffee.\nBe Ready...You'll have to stop the machine yourself.\n") ;
+                sleep (2) ;
+                break ; 
+                
+                case 'A' :
+                case 'a' :
+                printf ("You chose Automatic coffee.\n") ;
+                sleep (2) ;
+                break ;
+                
+                default :
+                printf ("Not Available.\n") ;
+                sleep (2) ;
+                return 0 ;
+                
+                }
+                
+                sleep (2) ; 
+                printf ("Preparing your coffee....\n") ;
+                sleep (2) ;
+                printf ("Putting Water....\n") ;
+                sleep (2) ;
+                printf ("Adding Sugar......\n") ;
+                sleep (2) ;
+                printf ("Mixing well.......\n") ;
+                sleep (2) ;
+                printf ("Adding Coffee......\n") ;
+                sleep (2) ;
+                
+                if (coffeetype == 'W' || coffeetype == 'w') {
+                    printf ("Adding milk......\n") ; 
+                    } 
+                    sleep (2) ;
+                    
+                    printf ("Mixing Well..........\n") ;
+                    
+                    if (coffeemade == 'M' || coffeemade == 'm') { printf ("Please stop the machine.\n") ; }
+                    sleep (2) ; 
+                    
+                    printf ("Your Coffee is Ready!\n") ;
+                    sleep (2) ;
+                    printf ("ThankYou for your order!\n") ;
+                    printf ("Enjoy your Coffee!:)") ;
+                    return 0 ; 
+    
+}
