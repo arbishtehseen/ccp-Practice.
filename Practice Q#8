@@ -1,0 +1,16 @@
+#include <stdio.h>
+int main () {
+    int lines , space , num; 
+    
+    for (lines=1 ; lines<=5 ; lines++) {
+        for(space = 5-lines ; space>=1; space--){
+            printf(" ");
+        }
+        for(num=1 ; num<=lines ; num++) {
+            printf("%d " , num) ;
+        }
+        printf("\n") ;
+    }
+    
+    return 0 ; 
+}
