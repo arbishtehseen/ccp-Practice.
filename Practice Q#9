@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main () {
+   int num[5] ; 
+   int max_num=0; 
+   int sum=0 ; 
+   
+   printf("Input five numbers to find greatest of all  = ") ; 
+   
+   for(int i=0 ; i<5 ; i++) {
+       scanf("%d" , &num[i]) ;
+       
+       sum+=num[i] ; 
+       
+       if(max_num<num[i]) {
+           max_num=num[i] ; 
+           }
+           
+       }
+       printf("The Sum of given numbers is = %d\n" , sum);
+      printf("Greatest of all given numbers is = %d", max_num);
+
+    return 0;
+}
