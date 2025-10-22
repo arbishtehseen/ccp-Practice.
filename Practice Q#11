@@ -1,0 +1,54 @@
+#include <stdio.h>
+int main () {
+    int n ; 
+    
+    printf("NOTE: In order to get matrix addition ,Number of Rows and Coloumns of both the matrices has to be equal.\nEnter the number of rows and coloumns for both the matrices = ");
+    scanf("%d" ,&n);
+    
+    int matrix_1[n][n] ;
+    int matrix_2[n][n]; 
+    
+    printf("Input elements for matrix 1 = \n");
+    for(int i=0 ; i<n ; i++){
+        for(int j=0 ; j<n ; j++){
+            scanf("%d" , &matrix_1[i][j]);
+        }
+        printf("\n"); 
+    }
+    
+    printf("Input matrix 1 is as follows :\n");
+        for(int i=0 ; i<n ; i++){
+            for (int j=0 ; j<n ; j++){
+                printf("%d " ,matrix_1[i][j]); 
+            }
+            printf("\n");
+        }
+printf("\nInput elements for matrix 2 = "); 
+     for(int i=0 ; i<n ; i++){
+        for(int j=0 ; j<n ; j++){
+            scanf("%d" , &matrix_2[i][j]);
+        }
+        printf("\n"); 
+    }
+    
+    printf("Input Matirx 2 is as follows :\n");
+    for(int i=0 ; i<n ; i++){
+        for(int j=0 ; j<n ; j++){
+            printf("%d " , matrix_2[i][j]);
+        }
+        printf("\n"); 
+    }
+    
+    int sum[n][n]; 
+    
+    printf("After addition matrix is as follows:\n");
+    for(int i=0 ; i<n ; i++){
+        for(int j=0 ; j<n ; j++){
+            printf("%d " ,sum[i][j]=matrix_1[i][j]+matrix_2[i][j]); 
+        }
+        printf("\n");
+    }
+    
+    
+    return 0 ; 
+}
