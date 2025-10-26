@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+int main() {
+    int arr[3][5][4];
+    float maxOverall = 0, maxTermScore = 0;
+    int maxTerm = 0, bestStudent = 0;
+
+    // Input marks
+    for(int term=0; term<3; term++){
+        printf("Input the marks of five students for four subjects (Term %d) = \n", term+1);
+        for(int student=0; student<5; student++){
+            for(int subject=0; subject<4; subject++){
+                scanf("%d", &arr[term][student][subject]);
+            }
+        }
+    }
+
+    // Calculate averages
+    for(int student=0; student<5; student++){
+        float sumOfAvg = 0;
+        int termWithMax = 0;
+        float maxTermForStudent = 0;
+
+        printf("\nStudent %d marks and term averages:\n", student+1);
+
+        for(int term=0; term<3; term++){
+            int sum = 0;
+            for(int subject=0; subject<4; subject++){
+                printf("%d ", arr[term][student][subject]);
+                sum += arr[term][student][subject];
+            }
+            float termAvg = (float)sum / 4;
+            printf("|| Term Average = %.2f\n", termAvg);
+            sumOfAvg += termAvg;
+
+            if(termAvg > maxTermForStudent){
+                maxTermForStudent = termAvg;
+                termWithMax = term+1;
+            }
+
+            if(termAvg > maxTermScore){ // Global max term score
+                maxTermScore = termAvg;
+                maxTerm = term+1;
+            }
+        }
+
+        float overallAvg = sumOfAvg / 3;
+        printf("Overall Average of Student %d = %.2f\n", student+1, overallAvg);
+
+        if(overallAvg > maxOverall){
+            maxOverall = overallAvg;
+            bestStudent = student+1;
+        }
+    }
+
+    printf("\nHighest Overall Scorer is Student %d with Average = %.2f\n", bestStudent, maxOverall);
+    printf("Highest Term Score = %.2f in Term %d\n", maxTermScore, maxTerm);
+
+    return 0;
+}
