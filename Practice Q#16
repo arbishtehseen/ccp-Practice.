@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h> 
+int main () {
+    char firstname[50];
+    char lastname[50];
+    char fullname[100];
+    int firstlen , lastlen ; 
+    
+    //input first name
+    printf("Enter first name : ");
+    fgets(firstname , sizeof(firstname) , stdin); 
+    
+    //input last name 
+    printf("Enter last name: "); 
+    fgets(lastname , sizeof(lastname) , stdin);
+    
+    firstlen=strlen(firstname); 
+    if(firstlen>0 && firstname[firstlen-1] == '\n'){
+        firstname[firstlen-1] = '\0'; 
+        firstlen--; 
+    }
+    
+    lastlen=strlen(lastname); 
+    if(lastlen>0 && lastname[lastlen-1] == '\n'){
+        lastname[lastlen-1] = '\0';
+        lastlen--; 
+    }
+    
+    // storing first name into fullname
+    int i = 0 ; 
+    while(i<firstlen){
+        fullname[i] = firstname[i]; 
+        i++; 
+    }
+    
+    int j=0 ; 
+    while(j<lastlen){
+        fullname[i+j] = lastname[j]; 
+        j++ ; 
+    }
+    int fulllen=strlen(fullname); 
+
+    printf("Full Name : %s" ,fullname);
+    
+    printf("\nReverse of the name is: "); 
+    for(int i=fulllen ; i>=0 ; i--){
+        printf("%c" ,fullname[i]);
+    }
+    
+    return 0 ; 
+}
