@@ -1,0 +1,24 @@
+#include <stdio.h>
+ #include <string.h>
+ int main(void) {
+     char firstname[60];
+     char secondname[50];
+     
+     printf("Enter your name(your name only):"); 
+     fgets(firstname, sizeof(firstname), stdin); 
+     printf("Enter your surname:");
+     fgets(secondname, sizeof(secondname), stdin); 
+     
+     firstname[strcspn(firstname, "\n")] = '\0';
+    secondname[strcspn(secondname, "\n")] = '\0';
+    
+    strcat(firstname, " ");       
+    strcat(firstname, secondname);
+    
+    int len=strlen(firstname) ;
+    
+     printf("Full name is : %s" ,firstname);
+     printf("\nTotal num of characters in name are :%d" ,len);
+     
+     return 0 ; 
+ }
