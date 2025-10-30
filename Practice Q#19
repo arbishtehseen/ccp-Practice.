@@ -1,0 +1,31 @@
+#include <stdio.h>
+int main (){
+    int m , n , maxnum=0 ;
+    
+    printf("Input number of rows= ");
+    scanf("%d" ,&m);
+    
+    printf("Input number of columns= ");
+    scanf("%d" ,&n); 
+    
+    int matrix[m][n]; 
+    
+    printf("Input the elements=\n");
+    for(int i=0 ; i<m ; i++){
+        for(int j=0 ; j<n ; j++){
+            scanf("%d" ,&matrix[i][j]);
+            if(maxnum<matrix[i][j]){
+                maxnum=matrix[i][j]; 
+            }
+        }
+    }
+    printf("Matrix entered is as follows:\n");
+    for(int i=0 ; i<m ; i++){
+        for(int j=0 ; j<n ; j++) {
+            printf("%d " ,matrix[i][j]);
+        }
+        printf("\n"); 
+    }
+    printf("\nLargest of all the elements is = %d" ,maxnum);
+    return 0 ;
+}
