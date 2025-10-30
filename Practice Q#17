@@ -1,0 +1,156 @@
+#include <stdio.h>
+#include <string.h>
+int main (){
+    char emails[5][50] = {"ghufran@gmail.com" ,
+    "aina@gmail.com" ,
+    "saif@gmail.com"} ; 
+    char password[5][50] = {"Hello12345",
+    "Onepieceisreal" ,
+    "xyz987654321"};
+    int choice ; 
+    
+    printf("=====Welcome to the Login System=====");
+    printf("\n1.Sign In");
+    printf("\n2.Sign Up");
+    printf("\nEnter your choice: ");
+    scanf("%d" ,&choice);
+    getchar(); 
+    
+    switch(choice) {
+        case 1 : //sign in
+        {
+        char useremail[50]; 
+        char userpass[50]; 
+        int lenemail , lenpass ; 
+        
+        printf("\nEnter your email: "); 
+        fgets(useremail , sizeof(useremail) , stdin); 
+        
+        printf("\nEnter password: "); 
+        fgets(userpass , sizeof(userpass) , stdin); 
+        
+        lenemail = strlen(useremail); 
+        if(lenemail>0 && useremail[lenemail - 1 ] == '\n'){
+            useremail[lenemail - 1] = '\0'; 
+            lenemail--; 
+        }
+        
+        lenpass = strlen(userpass); 
+        if(lenpass>0 && userpass[lenpass - 1] == '\n') {
+            userpass[lenpass - 1] = '\0';
+            lenpass-- ; 
+        }
+        
+        // comparing email
+        int result ; 
+        int i=0 ; 
+        int passresult; 
+        int emailyes=0 ; 
+        int passyes=0 ; 
+        
+        while(i<3){
+           result=strcmp(useremail , emails[i]);
+            if(result == 0 ) {
+                break ; 
+            }
+            i++; 
+        }
+        if(result == 0 ){
+            emailyes = 1; 
+        }
+          if(result == 0) {
+        passresult=strcmp(userpass , password[i]) ; 
+         passyes= (passresult == 0); 
+          }
+          else {
+              passyes=0; 
+          }
+          
+        if(emailyes == 1 && passyes == 1 ){
+            printf("\nSign in successfull!");
+        }
+        else {
+            printf("\nInvalid email or password.");
+        }
+        break ; 
+        } 
+        
+        case 2: 
+        // cond to check if alr 5 users exist 
+        int count=0; 
+        for(int i=0 ; i<5 ; i++){
+           for(int j=0 ; j<50 ; j++) {
+               if(emails[i][j] != '\0') {
+                   count+=1; 
+                   break;
+               }
+           }
+        }
+         if(count == 5 ){
+             printf("\nUser limit reached.\nCannot register more users."); 
+             return 0 ; 
+         }
+         
+         char newemail[50]; 
+         char newpass[50]; 
+         int lennewpass , lenmail; 
+         printf("Enter your email to make a new account: "); 
+         fgets(newemail , sizeof(newemail) , stdin); 
+         
+         lenmail=strlen(newemail); 
+         if(lenmail>0 && newemail[lenmail-1] == '\n'){
+             newemail[lenmail - 1] = '\0'; 
+             lenmail--; 
+         }
+              //checking if email alr exists
+             int result2 ; 
+             int found = 0; 
+             for(int i=0 ; i<5 ; i++){
+               result2 = strcmp(newemail, emails[i]);
+                 if (result2 == 0) {
+                     found = 1;
+                      break;
+                       } 
+               }
+             if(found == 1 ){
+                 printf("This emails already exists!Enter another one."); 
+                 return 0 ; 
+             }
+             
+             
+              printf("\nPassword length range(8-49).\nMust contain letters and number both(alphanumeric).\n"); 
+         printf("Enter password: "); 
+         fgets(newpass , sizeof(newpass) , stdin); 
+         
+         lennewpass=strlen(newpass) ; 
+         if(lennewpass>0 && newpass[lennewpass-1] == '\n'){
+             newpass[lennewpass-1] ='\0'; 
+             lennewpass--; 
+             
+             //checking password format. 
+             int count2=0; 
+             int count3=0; 
+             for(int i=0 ; i<lennewpass ; i++){
+                 if((newpass[i] >= 'a' && newpass[i] <= 'z') || 
+    (newpass[i] >= 'A' && newpass[i] <= 'Z')) {
+                     count2+=1; 
+                 }
+                 if(newpass[i] >= '0' && newpass[i] <= '9' ){
+                   count3+=1;   
+                 }
+             }
+             
+             if(count2 == 0 || count3 == 0 ) {
+                 printf("Invalid password format."); 
+                 return 0; 
+             }
+             printf("\nAccount created successfully."); 
+            strcpy(emails[3] ,newemail) ; 
+            strcpy(password[3] ,newpass) ; 
+             
+             
+         }
+    }
+    return 0; 
+
+}
